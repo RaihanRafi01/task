@@ -77,4 +77,7 @@ dependencies {
     implementation (libs.converter.gson)
     implementation (libs.androidx.lifecycle.viewmodel.ktx)
 
+    implementation (libs.glide)
+    implementation (libs.circleimageview)
+
 }
