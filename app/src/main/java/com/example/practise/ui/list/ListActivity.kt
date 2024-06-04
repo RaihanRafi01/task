@@ -17,7 +17,6 @@ class ListActivity : AppCompatActivity() {
         binding = ActivityListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         binding.recylerView.layoutManager = LinearLayoutManager(this)
 
         fetchStories()
@@ -29,7 +28,8 @@ class ListActivity : AppCompatActivity() {
         lifecycleScope.launch {
             try {
                 val items = itemRepository.getItems()
-                itemAdapter = ItemAdapter(items, this@ListActivity)
+                val all = items.data.host_daily.all
+                itemAdapter = ItemAdapter(all)
                 binding.recylerView.adapter = itemAdapter
                 Log.e("TAG", "bind: $items")
             } catch (e: Exception) {
